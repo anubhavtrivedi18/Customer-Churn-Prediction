@@ -10,7 +10,7 @@ from src.logger import logging
 from src.data_access.proj1_data import Proj1Data 
 
 
-
+# define the DataIngestion class
 class DataIngestion:
     def __init__(self,data_ingestion_config:DataIngestionConfig=DataIngestionConfig()):
         try:
