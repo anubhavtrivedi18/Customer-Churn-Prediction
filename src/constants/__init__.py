@@ -2,7 +2,7 @@ import os
 from datetime import date
 
 
-# For MongoDB connection
+# MongoDB connection
 DATABASE_NAME = "Churn_Project"
 COLLECTION_NAME = "Proj1-Data"
 MONGODB_URL_KEY = "MONGODB_URL"
@@ -28,7 +28,7 @@ REGION_NAME = "us-east-1"
 
 
 """
-Data Ingestion related constant start with DATA_INGESTION VAR NAME
+Data Ingestion related constant start with DATA_INGESTION VAR NAMES
 """
 DATA_INGESTION_COLLECTION_NAME: str = "Proj1-Data"
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"
