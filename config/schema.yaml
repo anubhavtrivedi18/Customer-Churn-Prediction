@@ -1,0 +1,166 @@
+columns:
+  _id: object  
+  CustomerID: CustomerID
+  Churn: category
+  MonthlyRevenue: float
+  MonthlyMinutes: float
+  TotalRecurringCharge: float
+  DirectorAssistedCalls: float
+  OverageMinutes: float
+  RoamingCalls: float
+  PercChangeMinutes: float
+  PercChangeRevenues: float
+  DroppedCalls: float
+  BlockedCalls: float
+  UnansweredCalls: float
+  CustomerCareCalls: float
+  ThreewayCalls: float
+  ReceivedCalls: float
+  OutboundCalls: float
+  InboundCalls: float
+  PeakCallsInOut: float
+  OffPeakCallsInOut: float
+  DroppedBlockedCalls: float
+  CallForwardingCalls: float
+  CallWaitingCalls: float
+  MonthsInService: int
+  UniqueSubs: int
+  ActiveSubs: int
+  ServiceArea: category
+  Handsets: float
+  HandsetModels: float
+  CurrentEquipmentDays: float
+  AgeHH1: float
+  AgeHH2: float
+  ChildrenInHH: category
+  HandsetRefurbished: category
+  HandsetWebCapable: category
+  TruckOwner: category
+  RVOwner: category
+  Homeownership: category
+  BuysViaMailOrder: category
+  RespondsToMailOffers: category
+  OptOutMailings: category
+  NonUSTravel: category
+  OwnsComputer: category
+  HasCreditCard: category
+  RetentionCalls: int
+  RetentionOffersAccepted: int
+  NewCellphoneUser: category
+  NotNewCellphoneUser: category
+  ReferralsMadeBySubscriber: int
+  IncomeGroup: int
+  OwnsMotorcycle: category
+  AdjustmentsToCreditRating: int
+  HandsetPrice: category
+  MadeCallToRetentionTeam: category
+  CreditRating: category
+  PrizmCode: category
+  Occupation: category
+  MaritalStatus: category
+
+target_column:
+  - Churn
+
+numerical_columns:
+  - MonthlyRevenue
+  - MonthlyMinutes
+  - TotalRecurringCharge
+  - RoamingCalls
+  - PercChangeMinutes
+  - PercChangeRevenues
+  - DroppedCalls
+  - BlockedCalls
+  - UnansweredCalls
+  - CustomerCareCalls
+  - ThreewayCalls
+  - ReceivedCalls
+  - OutboundCalls
+  - InboundCalls
+  - PeakCallsInOut
+  - OffPeakCallsInOut
+  - DroppedBlockedCalls
+  - CallWaitingCalls
+  - MonthsInService
+  - UniqueSubs
+  - ActiveSubs
+  - Handsets
+  - HandsetModels
+  - CurrentEquipmentDays
+  - AgeHH1
+  - AgeHH2
+  - RetentionCalls
+  - RetentionOffersAccepted
+  - ReferralsMadeBySubscriber
+  - IncomeGroup
+  - AdjustmentsToCreditRating
+
+categorical_columns:
+  - ServiceArea
+  - HandsetRefurbished
+  - HandsetWebCapable
+  - BuysViaMailOrder
+  - RespondsToMailOffers
+  - HandsetPrice
+  - MadeCallToRetentionTeam
+  - CreditRating
+  - PrizmCode
+  - MaritalStatus
+
+mean_columns:
+  - PercChangeMinutes
+  - AgeHH1
+
+median_columns:
+  - MonthlyRevenue
+  - MonthlyMinutes
+  - TotalRecurringCharge
+  - RoamingCalls
+  - PercChangeRevenues
+  - Handsets
+  - HandsetModels
+  - CurrentEquipmentDays
+  - AgeHH2
+
+nominal_columns:
+  - ServiceArea
+  - HandsetRefurbished
+  - HandsetWebCapable
+  - BuysViaMailOrder
+  - RespondsToMailOffers
+  - HandsetPrice
+  - MadeCallToRetentionTeam
+  - PrizmCode
+  - MaritalStatus
+
+ordinal_columns:
+  - CreditRating
+
+ordinal_categories:
+  - - "1-Highest"
+    - "2-High"
+    - "3-Good"
+    - "4-Medium"
+    - "5-Low"
+    - "6-VeryLow"
+    - "7-Lowest"
+
+
+drop_columns:
+  - "_id"
+  - "CustomerID"
+  - "DirectorAssistedCalls"
+  - "OverageMinutes"
+  - "CallForwardingCalls"
+  - "ChildrenInHH"
+  - "TruckOwner"
+  - "RVOwner"
+  - "Homeownership"
+  - "OptOutMailings"
+  - "NonUSTravel"
+  - "OwnsComputer"
+  - "HasCreditCard"
+  - "NewCellphoneUser"
+  - "NotNewCellphoneUser"
+  - "OwnsMotorcycle"
+  - "Occupation"

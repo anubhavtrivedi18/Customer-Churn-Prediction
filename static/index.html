@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <nav class="topbar" aria-label="Main navigation">
+            <a class="brand" href="/" aria-label="Churnwise home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M5 22.5 12 15l5 4 10-11" />
+                        <path d="M20 8h7v7" />
+                        <path d="M5 27h22" />
+                    </svg>
+                </span>
+                <span>churn<span class="brand-accent">wise</span></span>
+            </a>
+            <div class="topbar-right">
+                <span class="status-dot"></span>
+                <span>Prediction workspace</span>
+                <a class="docs-link" href="/docs">API docs <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+
+        <main class="page-content">
+            <section class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="eyebrow-line"></span> CUSTOMER INTELLIGENCE</p>
+                    <h1>See churn coming.<br><span>Act with confidence.</span></h1>
+                    <p class="intro">
+                        Estimate customer churn risk with a single profile or score an entire customer list.
+                    </p>
+                </div>
+                <aside class="hero-card" aria-label="Prediction information">
+                    <div class="hero-card-top">
+                        <span class="hero-icon" aria-hidden="true">↗</span>
+                        <span class="hero-card-label">YOUR NEXT STEP</span>
+                    </div>
+                    <p>Spot at-risk customers early and focus your retention efforts where they matter.</p>
+                    <div class="hero-card-footer"><span></span> AI-powered estimate</div>
+                </aside>
+            </section>
+
+            <section class="workspace" aria-label="Churn prediction tools">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">PREDICTION TOOLS</p>
+                        <h2>Choose how to get started</h2>
+                    </div>
+                    <span class="secure-note"><span aria-hidden="true">◆</span> IDs stay with your results</span>
+                </div>
+
+                <div class="tool-grid">
+                    <article class="tool-card single-card">
+                        <div class="tool-card-heading">
+                            <span class="tool-icon single-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="8" r="3.5" />
+                                    <path d="M5 20c.5-3.7 2.8-5.5 7-5.5s6.5 1.8 7 5.5" />
+                                </svg>
+                            </span>
+                            <span class="step-label">01 / SINGLE CUSTOMER</span>
+                        </div>
+                        <h3>Check one customer</h3>
+                        <p class="tool-description">Enter their profile details for an individual churn estimate.</p>
+                        <form id="prediction-form">
+                            <div id="form-fields" aria-live="polite">
+                                <p class="loading-message">Preparing customer fields…</p>
+                            </div>
+                            <button id="submit-button" class="primary-button" type="submit" disabled>
+                                <span>Predict customer risk</span><span aria-hidden="true">→</span>
+                            </button>
+                        </form>
+                        <section id="result" class="result single-result" aria-live="polite" hidden></section>
+                    </article>
+
+                    <article class="tool-card batch-card">
+                        <div class="tool-card-heading">
+                            <span class="tool-icon batch-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 3.75h7l4 4v12.5H7a2 2 0 0 1-2-2v-12.5a2 2 0 0 1 2-2Z" />
+                                    <path d="M14 4v4h4M8.5 12h7M8.5 15.5h7" />
+                                </svg>
+                            </span>
+                            <span class="step-label">02 / BATCH ANALYSIS</span>
+                        </div>
+                        <h3>Score a customer list</h3>
+                        <p class="tool-description">
+                            Upload a spreadsheet and get a churn estimate for every customer in one go.
+                        </p>
+
+                        <form id="batch-form">
+                            <label class="upload-zone" for="batch-file">
+                                <span class="upload-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5" />
+                                        <path d="M5 14.5v4A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5v-4" />
+                                    </svg>
+                                </span>
+                                <span class="upload-title">Choose a file to upload</span>
+                                <span class="upload-subtitle">or drag and drop it here</span>
+                                <span class="file-types">CSV or Excel (.xlsx) · up to 10 MB</span>
+                                <input id="batch-file" name="file" type="file" accept=".csv,.xlsx" required>
+                            </label>
+                            <div id="selected-file" class="selected-file" hidden></div>
+                            <div class="id-reminder">
+                                <span class="id-badge">ID</span>
+                                <p>Include an <strong>ID</strong> or <strong>CustomerID</strong> column in your file. It identifies each result and is not used by the model.</p>
+                            </div>
+                            <p class="batch-limit">Each file can contain up to 5,000 customer rows.</p>
+                            <button id="batch-submit-button" class="primary-button batch-button" type="submit">
+                                <span>Upload &amp; predict</span><span aria-hidden="true">→</span>
+                            </button>
+                        </form>
+
+                        <section id="batch-result" class="result batch-result" aria-live="polite" hidden></section>
+                        <a id="download-results" class="download-link" hidden>
+                            <span aria-hidden="true">↓</span> Download predictions
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <span>CHURNWISE <span>·</span> CUSTOMER RISK WORKSPACE</span>
+                <span>Probabilities are model estimates, not guarantees.</span>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

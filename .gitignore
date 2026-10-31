@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+artifact/
+logs/
+.vscode/
+Cell2Cell-Customer-Churn-Prediction/
