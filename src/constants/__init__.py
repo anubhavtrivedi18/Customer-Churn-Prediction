@@ -51,7 +51,7 @@ DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"
 DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
 
 """
-MODEL TRAINER related constant start with MODEL_TRAINER var Name
+MODEL TRAINER related constant start with MODEL_TRAINER VAR 
 """
 MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
